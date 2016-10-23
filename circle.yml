@@ -6,15 +6,9 @@ machine:
       oraclejdk8
       oraclejdk7
 
-
-dependencies:
-  override:
-    - mvn dependency:resolve
-
-
 test:
   override:
-    - mvn clean verify
+    - mvn test
 
 general:
   branches:
