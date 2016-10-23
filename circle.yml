@@ -1,9 +1,10 @@
 ## Customize the test machine
 machine:
   # Version of jdk
-  jdk:
+  java:
     version:
       oraclejdk8
+      oraclejdk7
 
 
 dependencies:
