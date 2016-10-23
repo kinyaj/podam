@@ -1,0 +1,21 @@
+## Customize the test machine
+machine:
+  # Version of jdk
+  jdk:
+    version:
+      oraclejdk8
+
+
+dependencies:
+  override:
+    - mvn dependency:resolve
+
+
+test:
+  override:
+    - mvn clean verify
+
+general:
+  branches:
+    only:
+      - develop
