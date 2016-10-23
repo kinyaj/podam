@@ -1,4 +1,22 @@
+## Customize the test machine
+machine:
+  # Version of jdk
+  java:
+    version:
+      oraclejdk8
+
 test:
- post:
-  - mkdir -p $CIRCLE_TEST_REPORTS/junit/
-  - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+  override:
+    - mvn integration-test
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex "./target/failsafe-reports/.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+
+general:
+  branches:
+    only:
+      - develop
+
+dependencies:
+  override:
+    - mvn dependency:resolve -DexcludeGroupIds=com.github.github -V dependency:go-offline
