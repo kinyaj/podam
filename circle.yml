@@ -13,3 +13,7 @@ general:
   branches:
     only:
       - develop
+
+dependencies:
+  pre:
+    - mvn clean verify
